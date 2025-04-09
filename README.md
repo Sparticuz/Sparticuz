@@ -3,7 +3,7 @@
 </a>
 <br/>
 <a href="https://github.com/Sparticuz">
-  <img align="center" width="49%" src="./repositories.svg" />
+  <img align="center" width="49%" src="./lines-of-code.svg" />
 </a>
 <a href="https://github.com/Sparticuz">
   <img align="center" width="49%" src="./acti_comm.svg" />
