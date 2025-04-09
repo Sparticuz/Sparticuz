@@ -10,7 +10,7 @@ jobs:
   achievements:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: stalomeow/metrics@projects-v2
         with:
           filename: achievements.svg
           token: ${{ secrets.METRICS_SECRET }}
@@ -51,11 +51,6 @@ jobs:
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: "repositories"
           plugin_lines: yes
-          plugin_notable: yes
-          plugin_notable_from: all
-          plugin_notable_repositories: yes
-          plugin_notable_self: yes
-          plugin_notable_types: commit
 
   acti_comm:
     runs-on: ubuntu-latest
