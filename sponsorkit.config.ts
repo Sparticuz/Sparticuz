@@ -13,21 +13,21 @@ export default defineConfig({
     {
       title: "Past Sponsors",
       monthlyDollars: -1,
-      preset: tierPresets.xs,
+      preset: tierPresets.base,
     },
     {
       title: "Backers",
-      preset: tierPresets.base,
+      preset: tierPresets.medium,
     },
     {
       title: "Sponsors",
       monthlyDollars: 10,
-      preset: tierPresets.medium,
+      preset: tierPresets.large,
     },
     {
       title: "Silver Sponsors",
       monthlyDollars: 50,
-      preset: tierPresets.large,
+      preset: tierPresets.xl,
     },
     {
       title: "Gold Sponsors",
