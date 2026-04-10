@@ -1,0 +1,23 @@
+{
+  "name": "sparticuz",
+  "version": "1.0.0",
+  "description": "<a href=\"https://github.com/Sparticuz\">   <img align=\"center\" width=\"49%\" src=\"./header.svg\" /> </a> <br/> <a href=\"https://github.com/Sparticuz\">   <img align=\"center\" width=\"49%\" src=\"./lines-of-code.svg\" /> </a> <a href=\"https://github.com/Sparticuz\">   <img align=\"center\" width=\"49%\" src=\"./acti_comm.svg\" /> </a>",
+  "homepage": "https://github.com/Sparticuz/Sparticuz#readme",
+  "bugs": {
+    "url": "https://github.com/Sparticuz/Sparticuz/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sparticuz/Sparticuz.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "sponsors": "sponsorkit"
+  },
+  "dependencies": {
+    "sponsorkit": "^17.1.0"
+  }
+}

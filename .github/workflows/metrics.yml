@@ -1,10 +1,10 @@
 name: Metrics
 on:
   # Schedule updates (each hour)
-  schedule: [{cron: "14 */12 * * *"}]
+  schedule: [{ cron: "14 */12 * * *" }]
   # Lines below let you run workflow manually and on each commit (optional)
   workflow_dispatch:
-  push: {branches: ["master"]}
+  push: { branches: ["master"] }
 
 jobs:
   achievements:
@@ -18,10 +18,10 @@ jobs:
           user: Sparticuz
           base: achievements
           plugin_achievements: yes
-          plugin_achievements_threshold: B      # Display achievements with rank B or higher
-          plugin_achievements_secrets: yes      # Display unlocked secrets achievements
-          plugin_achievements_display: compact  # Use compact display
-          plugin_achievements_limit: 0          # Display all unlocked achievements (no limit)
+          plugin_achievements_threshold: B # Display achievements with rank B or higher
+          plugin_achievements_secrets: yes # Display unlocked secrets achievements
+          plugin_achievements_display: compact # Use compact display
+          plugin_achievements_limit: 0 # Display all unlocked achievements (no limit)
 
   github-metrics:
     runs-on: ubuntu-latest
@@ -89,7 +89,7 @@ jobs:
   habits:
     runs-on: ubuntu-latest
     steps:
-      - uses: lowlighter/metrics@latest
+      - uses: Br1an67/metrics@fix/habits-null-commit-author
         with:
           filename: github-habits.svg
           token: ${{ secrets.METRICS_SECRET }}
@@ -99,10 +99,10 @@ jobs:
           base: ""
           template: classic
           plugin_habits: yes
-          plugin_habits_from: 200       # Use 200 events to compute habits
-          plugin_habits_days: 14        # Keep only events from last 14 days
-          plugin_habits_charts: yes     # Display charts section
-          plugin_habits_trim: yes       # Trim unused hours on daily chart
+          plugin_habits_from: 200 # Use 200 events to compute habits
+          plugin_habits_days: 14 # Keep only events from last 14 days
+          plugin_habits_charts: yes # Display charts section
+          plugin_habits_trim: yes # Trim unused hours on daily chart
 
   issue_pr_lang:
     runs-on: ubuntu-latest
@@ -135,3 +135,26 @@ jobs:
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
+
+  sponsors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - name: Update sponsors
+        run: npm run sponsors
+        env:
+          SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
+          SPONSORKIT_GITHUB_LOGIN: sparticuz
+      - name: Commit
+        uses: EndBug/add-and-commit@v10
+        with:
+          author_name: GitHub Actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "chore: update sponsors.svg [ci skip]"
+          add: "sponsors.svg"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
