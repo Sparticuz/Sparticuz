@@ -156,5 +156,6 @@ jobs:
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: "Update sponsors.svg - [Skip GitHub Action]"
           add: "sponsorkit/sponsors.svg"
+          pull: "--rebase"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
