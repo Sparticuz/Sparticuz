@@ -11,7 +11,7 @@ export default defineConfig({
   },
   tiers: [
     {
-      title: "Past Sponsors",
+      title: "Past Supporters",
       monthlyDollars: -1,
       preset: tierPresets.base,
     },
